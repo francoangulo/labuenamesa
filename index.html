@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoRepuestos - Tu tienda de repuestos para automóviles</title>
+    <meta name="description" content="Encuentra los mejores repuestos para tu vehículo. Amplio catálogo de piezas automotor.">
+</head>
+<body>
+    <header>
+        <h1>Repuestos Pepito</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido a AutoRepuestos</h2>
+            <p>Tu tienda de confianza para repuestos de automóviles. Contamos con amplia variedad de piezas para todas las marcas y modelos.</p>
+        </section>
+
+        <section id="productos">
+            <h2>Nuestros Productos</h2>
+            <article>
+                <h3>Repuestos de Motor</h3>
+                <p>Filtros, bujías, correas, rodamientos y más para el corazón de tu vehículo.</p>
+            </article>
+            <article>
+                <h3>Repuestos de Frenos</h3>
+                <p>Pastillas, discos, tambores, líquido de frenos y accesorios de seguridad.</p>
+            </article>
+            <article>
+                <h3>Suspensión y Dirección</h3>
+                <p>Amortiguadores, rotulas, barillas, bujes y componentes de suspensión.</p>
+            </article>
+            <article>
+                <h3>Eléctricos y Electrónicos</h3>
+                <p>Baterías, alternadores, sensores, luces y sistemas de iluminación.</p>
+            </article>
+            <article>
+                <h3>Carrocería</h3>
+                <p>Parachoques, espejos, faros, luces y accesorios exteriores.</p>
+            </article>
+            <article>
+                <h3>Accesorios</h3>
+                <p>Limpiadores, lubricantes, herramientas y productos de mantenimiento.</p>
+            </article>
+        </section>
+
+        <section id="busqueda">
+            <h2>Buscar Repuestos</h2>
+            <form action="#" method="get">
+                <label for="marca">Marca del vehículo:</label>
+                <input type="text" id="marca" name="marca" placeholder="Ej: Toyota">
+                
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" placeholder="Ej: Corolla">
+                
+                <label for="ano">Año:</label>
+                <input type="number" id="ano" name="ano" placeholder="Ej: 2020">
+                
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="">Seleccionar categoría</option>
+                    <option value="motor">Motor</option>
+                    <option value="frenos">Frenos</option>
+                    <option value="suspension">Suspensión</option>
+                    <option value="electrico">Eléctrico</option>
+                    <option value="carroceria">Carrocería</option>
+                </select>
+                
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <section id="nosotros">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos una empresa dedicada a la venta de repuestos automotrices con más de 10 años de experiencia en el mercado. Nuestra misión es proporcionar piezas de calidad a los mejores precios.</p>
+            <address>
+                <p>Dirección: Av. Principal 123, Ciudad</p>
+                <p>Teléfono: (555) 123-4567</p>
+                <p>Email: contacto@autorepuestos.com</p>
+                <p>Horario: Lunes a Viernes de 8:00 a 18:00 hrs</p>
+            </address>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctenos</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AutoRepuestos. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
