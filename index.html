@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Buena Mesa - Restaurante</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <nav>
       <div class="nav-container">
         <a href="/" class="logo">La Buena Mesa</a>
+        <button class="nav-toggle" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <ul class="nav-links">
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Menú</a></li>
@@ -41,14 +49,71 @@
     <main class="menu-content">
       <h2>Nuestro Menú</h2>
       <div class="menu-grid">
-        <!-- Contenido del menú -->
+        <article class="menu-item">
+          <div class="menu-item-image">🍕</div>
+          <div class="menu-item-info">
+            <h3>Pizza Margarita</h3>
+            <p>Tomate, mozzarella, albahaca</p>
+            <span class="menu-item-price">$12.00</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-image">🍔</div>
+          <div class="menu-item-info">
+            <h3>Hamburguesa Clásica</h3>
+            <p>Carne, queso, lechuga, tomate</p>
+            <span class="menu-item-price">$10.00</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-image">🌮</div>
+          <div class="menu-item-info">
+            <h3>Tacos al Pastor</h3>
+            <p>Carne marinada, cebolla, cilantro</p>
+            <span class="menu-item-price">$8.00</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-image">🍝</div>
+          <div class="menu-item-info">
+            <h3>Spaghetti Bolognese</h3>
+            <p>Pasta, carne molida, tomate</p>
+            <span class="menu-item-price">$11.00</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-image">🥗</div>
+          <div class="menu-item-info">
+            <h3>Ensalada César</h3>
+            <p>Lechuga, pollo, crutones, parmesano</p>
+            <span class="menu-item-price">$9.00</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-image">🍰</div>
+          <div class="menu-item-info">
+            <h3>Flan de Vainilla</h3>
+            <p>Flan con caramelo y crema</p>
+            <span class="menu-item-price">$5.00</span>
+          </div>
+        </article>
       </div>
     </main>
 
-    <aside class="cart-floating">
-      <span class="cart-count">0</span>
-      <span class="cart-text">Tu pedido</span>
-      <span class="cart-total">$0.00</span>
-    </aside>
+    <footer class="cart">
+      <div class="cart-container">
+        <div class="cart-header">
+          <h3>Tu pedido</h3>
+          <span class="cart-count">0 artículos</span>
+        </div>
+        <div class="cart-items">
+          <p class="cart-empty">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+          <span>Total:</span>
+          <span class="cart-total">$0.00</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
