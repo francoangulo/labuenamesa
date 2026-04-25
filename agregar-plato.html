@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Plato - La Buena Mesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">La Buena Mesa</a>
+        <button class="nav-toggle" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="#">Menú</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="agregar-plato.html" class="nav-link-primary">Agregar plato</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="form-page">
+      <div class="form-container">
+        <h1>Agregar Nuevo Plato</h1>
+        <p class="form-subtitle">Completa los detalles del plato para agregarlo al menú</p>
+
+        <form id="platoForm" class="plato-form">
+          <div class="form-group">
+            <label for="nombre">Nombre del plato</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Ej: Paella Valenciana"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea
+              id="descripcion"
+              name="descripcion"
+              rows="3"
+              placeholder="Describe los ingredientes y características del plato"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="precio">Precio ($)</label>
+              <input
+                type="number"
+                id="precio"
+                name="precio"
+                step="0.01"
+                min="0"
+                placeholder="0.00"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="categoria">Categoría</label>
+              <select id="categoria" name="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="entradas">Entradas</option>
+                <option value="principales">Principales</option>
+                <option value="postres">Postres</option>
+                <option value="bebidas">Bebidas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="imagen">Emoji representativo</label>
+            <input
+              type="text"
+              id="imagen"
+              name="imagen"
+              placeholder="Ej: 🍝 (ingresa un emoji)"
+              required
+            />
+          </div>
+
+          <div class="form-actions">
+            <a href="index.html" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Plato</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
