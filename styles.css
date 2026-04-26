@@ -250,10 +250,14 @@ p {
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
+  position: relative;
+  transition: transform 0.2s ease;
 }
 
 .menu-item:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transform: scale(1.025);
 }
 
 .menu-item-image {
@@ -282,6 +286,55 @@ p {
   font-weight: 600;
   color: var(--color-primary);
   font-size: 1.1rem;
+}
+
+.menu-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+  background: var(--color-bg-secondary);
+  color: #666;
+}
+
+.tag-featured {
+  background: rgba(230, 126, 34, 0.15);
+  color: var(--color-primary);
+}
+
+.tag-vegetarian {
+  background: rgba(46, 204, 113, 0.15);
+  color: #27ae60;
+}
+
+.tag-popular {
+  background: rgba(241, 196, 15, 0.2);
+  color: #d4a200;
+}
+
+.tag-spicy {
+  background: rgba(231, 76, 60, 0.15);
+  color: #c0392b;
+}
+
+.tag-new {
+  background: rgba(155, 89, 182, 0.15);
+  color: #8e44ad;
+}
+
+.tag-absolute {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
