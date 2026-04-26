@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del Producto - La Buena Mesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">La Buena Mesa</a>
+        <button class="nav-toggle" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="#">Menú</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li>
+            <a href="agregar-plato.html" class="nav-link-primary"
+              >Agregar plato</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="product-detail">
+      <div class="product-detail-container">
+        <a href="index.html" class="back-link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          Volver al menú
+        </a>
+        <div id="product-detail-content">
+          <p class="loading-text">Cargando producto...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="cart">
+        <div class="cart-container">
+          <div class="cart-header">
+            <h3>Tu pedido</h3>
+            <span class="cart-count">0 artículos</span>
+          </div>
+          <div class="cart-items">
+            <p class="cart-empty">Tu carrito está vacío</p>
+          </div>
+          <div class="cart-footer">
+            <span>Total:</span>
+            <span class="cart-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="detalle-producto.js"></script>
+  </body>
+</html>
