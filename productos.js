@@ -1,35 +1,44 @@
 const TAG_CONFIG = {
-  featured: { emoji: "🔥", text: "Recomendado", class: "tag-featured", absolute: true },
+  featured: {
+    emoji: "🔥",
+    text: "Recomendado",
+    class: "tag-featured",
+    absolute: true,
+  },
   vegetarian: { emoji: "🌱", text: "Vegetariano", class: "tag-vegetarian" },
   spicy: { emoji: "🌶️", text: "Picante", class: "tag-spicy" },
   new: { emoji: "✨", text: "Nuevo", class: "tag-new" },
-  popular: { emoji: "⭐", text: "Popular", class: "tag-popular" }
+  popular: { emoji: "⭐", text: "Popular", class: "tag-popular" },
 };
 
-function renderTags(tags, asAbsolute = false) {
-  if (asAbsolute) {
-    return tags
-      .filter(t => TAG_CONFIG[t]?.absolute)
-      .map(t => `<span class="tag ${TAG_CONFIG[t].class} tag-absolute">${TAG_CONFIG[t].emoji} ${TAG_CONFIG[t].text}</span>`)
-      .join("");
-  }
-
+function renderAbsoluteTags(tags) {
   return tags
-    .filter(t => !TAG_CONFIG[t]?.absolute)
-    .map(t => `<span class="tag ${TAG_CONFIG[t].class}">${TAG_CONFIG[t].emoji} ${TAG_CONFIG[t].text}</span>`)
+    .filter((t) => TAG_CONFIG[t]?.absolute)
+    .map(
+      (t) =>
+        `<span class="tag ${TAG_CONFIG[t].class} tag-absolute">${TAG_CONFIG[t].emoji} ${TAG_CONFIG[t].text}</span>`
+    )
     .join("");
 }
 
-function renderProduct(product) {
-  const absoluteTagsHtml = renderTags(product.tags, true);
-  const normalTagsHtml = renderTags(product.tags, false);
+function renderNormalTags(tags) {
+  const filteredTags = tags.filter((t) => !TAG_CONFIG[t]?.absolute);
+  if (filteredTags.length === 0) return "";
+  return `<div class="menu-item-tags">${filteredTags
+    .map(
+      (t) =>
+        `<span class="tag ${TAG_CONFIG[t].class}">${TAG_CONFIG[t].emoji} ${TAG_CONFIG[t].text}</span>`
+    )
+    .join("")}</div>`;
+}
 
+function renderProduct(product) {
   return `
     <article class="menu-item">
       <div class="menu-item-image">${product.imagen}</div>
-      ${absoluteTagsHtml}
+      ${renderAbsoluteTags(product.tags)}
       <div class="menu-item-info">
-        ${normalTagsHtml ? `<div class="menu-item-tags">${normalTagsHtml}</div>` : ""}
+        ${renderNormalTags(product.tags)}
         <h3>${product.nombre}</h3>
         <p>${product.descripcion}</p>
         <span class="menu-item-price">$${product.precio.toFixed(2)}</span>
