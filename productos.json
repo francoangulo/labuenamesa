@@ -46,5 +46,85 @@
     "precio": 5.00,
     "imagen": "🍰",
     "tags": ["featured"]
+  },
+  {
+    "id": 7,
+    "nombre": "Empanadas Argentinas",
+    "descripcion": "Carne, cebolla, huevo duro, aceitunas",
+    "precio": 6.00,
+    "imagen": "🥟",
+    "tags": ["featured", "popular"]
+  },
+  {
+    "id": 8,
+    "nombre": "Paella Valenciana",
+    "descripcion": "Arroz, mariscos, azafrán, pollo",
+    "precio": 18.00,
+    "imagen": "🍲",
+    "tags": ["featured"]
+  },
+  {
+    "id": 9,
+    "nombre": "Sushi Variado",
+    "descripcion": "Salmón, atún, langostino, aguacate",
+    "precio": 15.00,
+    "imagen": "🍣",
+    "tags": ["new"]
+  },
+  {
+    "id": 10,
+    "nombre": "Pollo a la Naranja",
+    "descripcion": "Pollo glaseado con salsa de naranja",
+    "precio": 13.00,
+    "imagen": "🍗",
+    "tags": ["popular"]
+  },
+  {
+    "id": 11,
+    "nombre": "Gazpacho",
+    "descripcion": "Sopa fría de tomate, pepino, pimiento",
+    "precio": 7.00,
+    "imagen": "🥣",
+    "tags": ["vegetarian", "spicy"]
+  },
+  {
+    "id": 12,
+    "nombre": "Risotto de Hongos",
+    "descripcion": "Arroz cremoso con setas y parmesano",
+    "precio": 14.00,
+    "imagen": "🍚",
+    "tags": ["vegetarian"]
+  },
+  {
+    "id": 13,
+    "nombre": "Ceviche Peruano",
+    "descripcion": "Pescado fresco en limón, cebolla morada",
+    "precio": 16.00,
+    "imagen": "🐟",
+    "tags": ["new", "popular"]
+  },
+  {
+    "id": 14,
+    "nombre": "Tiramisú",
+    "descripcion": "Bizcocho, café, mascarpone, cacao",
+    "precio": 8.00,
+    "imagen": "🍮",
+    "tags": ["popular"]
+  },
+  {
+    "id": 15,
+    "nombre": "Curry de Garbanzos",
+    "descripcion": "Garbanzos, leche de coco, especias hindúes",
+    "precio": 10.00,
+    "imagen": "🍛",
+    "tags": ["vegetarian", "spicy"]
+  },
+  {
+    "id": 16,
+    "nombre": "Lasagna Casera",
+    "descripcion": "Placas de pasta, ragú, bechamel, queso",
+    "precio": 12.00,
+    "imagen": "🫙",
+    "tags": ["popular"]
   }
 ]
