@@ -21,10 +21,19 @@ async function loadProducts() {
   try {
     const response = await fetch("productos.json");
     const products = await response.json();
-    const container = document.querySelector(".menu-grid");
+    const container = document.querySelector(".menu-grid:not(#destacados)");
+    const destacadosContainer = document.querySelector("#destacados");
+    const productosDestacados = products.filter((product) =>
+      product.tags.includes("featured")
+    );
 
     if (container) {
       container.innerHTML = products.map(renderProduct).join("");
+    }
+    if (destacadosContainer) {
+      destacadosContainer.innerHTML = productosDestacados
+        .map(renderProduct)
+        .join("");
     }
   } catch (error) {
     console.error("Error loading products:", error);

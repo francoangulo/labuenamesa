@@ -73,10 +73,9 @@ nav {
   padding: 0.25rem 0.75rem;
   border-radius: 0.75rem;
   letter-spacing: 0.5px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease;
   &:hover {
-    background-color: var(--color-primary);
-    color: var(--primary-bg-text-color);
+    animation: bounce 0.35s ease-in-out;
   }
 }
 
@@ -155,7 +154,7 @@ nav {
 .hero {
   padding: 3rem 1rem;
   text-align: center;
-  background-color: var(--color-bg-secondary);
+  padding-bottom: 0;
 }
 
 .hero h1 {
@@ -164,7 +163,7 @@ nav {
 }
 
 .categories {
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
@@ -234,8 +233,27 @@ nav {
   background: rgba(230, 126, 34, 0.1);
 }
 
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  a {
+    background: var(--color-primary);
+    width: 100%;
+    max-width: 200px;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    &:hover {
+      background: #d35400;
+    }
+  }
+}
 .menu-content {
-  padding: 2rem 1rem;
+  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -244,10 +262,12 @@ nav {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  margin-top: 1.5rem;
 }
 
 .menu-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
@@ -271,6 +291,10 @@ nav {
 
 .menu-item-info {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .menu-item-info h3 {
@@ -898,7 +922,7 @@ nav {
 }
 
 .menu-item-link {
-  display: block;
+  display: flex;
 }
 
 .contact {
@@ -1165,4 +1189,21 @@ nav {
 .fab-scroll-top svg {
   width: 20px;
   height: 20px;
+}
+
+/* animación de rebote */
+@keyframes bounce {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }

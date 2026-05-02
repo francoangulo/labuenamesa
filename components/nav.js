@@ -9,7 +9,7 @@ export function renderNav() {
       </button>
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#menu">Menú</a></li>
+        <li><a href="menu.html">Menú</a></li>
         <li><a href="#contact">Contacto</a></li>
         <li>
           <a href="agregar-plato.html" class="nav-link-primary"

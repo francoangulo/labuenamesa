@@ -3,7 +3,7 @@
     "id": 1,
     "nombre": "Pizza Margarita",
     "descripcion": "Tomate, mozzarella, albahaca",
-    "precio": 12.00,
+    "precio": 12.0,
     "imagen": "🍕",
     "tags": ["featured", "vegetarian"]
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "nombre": "Hamburguesa Clásica",
     "descripcion": "Carne, queso, lechuga, tomate",
-    "precio": 10.00,
+    "precio": 10.0,
     "imagen": "🍔",
     "tags": ["featured"]
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "nombre": "Tacos al Pastor",
     "descripcion": "Carne marinada, cebolla, cilantro",
-    "precio": 8.00,
+    "precio": 8.0,
     "imagen": "🌮",
     "tags": ["spicy"]
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "nombre": "Spaghetti Bolognese",
     "descripcion": "Pasta, carne molida, tomate",
-    "precio": 11.00,
+    "precio": 11.0,
     "imagen": "🍝",
     "tags": ["vegetarian"]
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "nombre": "Ensalada César",
     "descripcion": "Lechuga, pollo, crutones, parmesano",
-    "precio": 9.00,
+    "precio": 9.0,
     "imagen": "🥗",
     "tags": ["vegetarian", "new"]
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "nombre": "Flan de Vainilla",
     "descripcion": "Flan con caramelo y crema",
-    "precio": 5.00,
+    "precio": 5.0,
     "imagen": "🍰",
     "tags": ["featured"]
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "nombre": "Empanadas Argentinas",
     "descripcion": "Carne, cebolla, huevo duro, aceitunas",
-    "precio": 6.00,
+    "precio": 6.0,
     "imagen": "🥟",
     "tags": ["featured", "popular"]
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "nombre": "Paella Valenciana",
     "descripcion": "Arroz, mariscos, azafrán, pollo",
-    "precio": 18.00,
+    "precio": 18.0,
     "imagen": "🍲",
     "tags": ["featured"]
   },
@@ -67,15 +67,15 @@
     "id": 9,
     "nombre": "Sushi Variado",
     "descripcion": "Salmón, atún, langostino, aguacate",
-    "precio": 15.00,
+    "precio": 15.0,
     "imagen": "🍣",
-    "tags": ["new"]
+    "tags": ["new", "featured"]
   },
   {
     "id": 10,
     "nombre": "Pollo a la Naranja",
     "descripcion": "Pollo glaseado con salsa de naranja",
-    "precio": 13.00,
+    "precio": 13.0,
     "imagen": "🍗",
     "tags": ["popular"]
   },
@@ -83,7 +83,7 @@
     "id": 11,
     "nombre": "Gazpacho",
     "descripcion": "Sopa fría de tomate, pepino, pimiento",
-    "precio": 7.00,
+    "precio": 7.0,
     "imagen": "🥣",
     "tags": ["vegetarian", "spicy"]
   },
@@ -91,7 +91,7 @@
     "id": 12,
     "nombre": "Risotto de Hongos",
     "descripcion": "Arroz cremoso con setas y parmesano",
-    "precio": 14.00,
+    "precio": 14.0,
     "imagen": "🍚",
     "tags": ["vegetarian"]
   },
@@ -99,7 +99,7 @@
     "id": 13,
     "nombre": "Ceviche Peruano",
     "descripcion": "Pescado fresco en limón, cebolla morada",
-    "precio": 16.00,
+    "precio": 16.0,
     "imagen": "🐟",
     "tags": ["new", "popular"]
   },
@@ -107,7 +107,7 @@
     "id": 14,
     "nombre": "Tiramisú",
     "descripcion": "Bizcocho, café, mascarpone, cacao",
-    "precio": 8.00,
+    "precio": 8.0,
     "imagen": "🍮",
     "tags": ["popular"]
   },
@@ -115,7 +115,7 @@
     "id": 15,
     "nombre": "Curry de Garbanzos",
     "descripcion": "Garbanzos, leche de coco, especias hindúes",
-    "precio": 10.00,
+    "precio": 10.0,
     "imagen": "🍛",
     "tags": ["vegetarian", "spicy"]
   },
@@ -123,7 +123,7 @@
     "id": 16,
     "nombre": "Lasagna Casera",
     "descripcion": "Placas de pasta, ragú, bechamel, queso",
-    "precio": 12.00,
+    "precio": 12.0,
     "imagen": "🫙",
     "tags": ["popular"]
   }
