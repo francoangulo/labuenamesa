@@ -12,38 +12,42 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script type="module">
-      import { isLoggedIn } from './auth.js'
+      import { isLoggedIn } from "./auth.js";
       if (!isLoggedIn()) {
-        window.location.href = 'login.html'
+        window.location.href = "login.html";
       }
     </script>
   </head>
   <body>
     <nav>
-      <div class="nav-container">
-        <a href="index.html" class="logo">La Buena Mesa</a>
-        <button class="nav-toggle" aria-label="Menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="#">Menú</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="agregar-plato.html" class="nav-link-primary">Agregar plato</a></li>
-        </ul>
-      </div>
+      <a href="index.html" class="logo">La Buena Mesa</a>
+      <button class="nav-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Menú</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li>
+          <a href="agregar-plato.html" class="nav-link-primary"
+            >Agregar plato</a
+          >
+        </li>
+      </ul>
     </nav>
     <script type="module">
-      import { initAuthNav } from './auth.js'
-      initAuthNav()
+      import { initAuthNav } from "./auth.js";
+      initAuthNav();
     </script>
 
     <main class="form-page">
       <div class="form-container">
         <h1>Agregar Nuevo Plato</h1>
-        <p class="form-subtitle">Completa los detalles del plato para agregarlo al menú</p>
+        <p class="form-subtitle">
+          Completa los detalles del plato para agregarlo al menú
+        </p>
 
         <form id="platoForm" class="plato-form">
           <div class="form-group">

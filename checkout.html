@@ -15,43 +15,38 @@
   </head>
   <body>
     <nav>
-      <div class="nav-container">
-        <a href="index.html" class="logo">La Buena Mesa</a>
-        <button class="nav-toggle" aria-label="Menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="#">Menú</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li>
-            <a href="agregar-plato.html" class="nav-link-primary"
-              >Agregar plato</a
-            >
-          </li>
-        </ul>
-      </div>
+      <a href="index.html" class="logo">La Buena Mesa</a>
+      <button class="nav-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Menú</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li>
+          <a href="agregar-plato.html" class="nav-link-primary"
+            >Agregar plato</a
+          >
+        </li>
+      </ul>
     </nav>
     <script type="module">
-      import { initAuthNav } from './auth.js'
-      initAuthNav()
+      import { initAuthNav } from "./auth.js";
+      initAuthNav();
     </script>
 
     <main class="checkout-page">
       <div class="checkout-container">
-        <a href="index.html" class="back-link">
-          ← Volver al menú
-        </a>
+        <a href="index.html" class="back-link"> ← Volver al menú </a>
 
         <h1>Finalizar Pedido</h1>
 
         <div class="checkout-grid">
           <div class="checkout-summary">
             <h2>Tu Pedido</h2>
-            <div class="checkout-items" id="checkout-items">
-            </div>
+            <div class="checkout-items" id="checkout-items"></div>
             <div class="checkout-total">
               <span>Total:</span>
               <span class="total-amount" id="checkout-total">$0.00</span>
@@ -104,7 +99,7 @@
               </div>
 
               <h2>Método de Pago</h2>
-              
+
               <div class="payment-methods">
                 <label class="payment-option">
                   <input type="radio" name="pago" value="efectivo" checked />
