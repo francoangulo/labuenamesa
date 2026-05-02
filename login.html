@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - La Buena Mesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">La Buena Mesa</a>
+      </div>
+    </nav>
+
+    <main class="login-page">
+      <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <p class="login-subtitle">Ingresa para gestionar el menú</p>
+
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input
+              type="text"
+              id="usuario"
+              name="usuario"
+              placeholder="admin"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="••••••"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-login">
+            Ingresar
+          </button>
+        </form>
+
+        <p class="login-hint">Usuario: admin / Contraseña: admin</p>
+      </div>
+    </main>
+
+    <script type="module">
+      import { login } from './auth.js'
+
+      const form = document.getElementById('loginForm')
+      form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const usuario = form.usuario.value
+        const password = form.password.value
+
+        if (usuario === 'admin' && password === 'admin') {
+          login()
+          window.location.href = 'index.html'
+        } else {
+          alert('Credenciales incorrectas. Usa admin/admin')
+        }
+      })
+    </script>
+  </body>
+</html>

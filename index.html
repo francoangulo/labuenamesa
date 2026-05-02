@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="carga-productos.js"></script>
+    <script type="module" src="auth.js"></script>
   </head>
   <body>
     <nav>
@@ -34,6 +35,10 @@
         </ul>
       </div>
     </nav>
+    <script type="module">
+      import { initAuthNav } from './auth.js'
+      initAuthNav()
+    </script>
 
     <header class="hero">
       <h1>Bienvenidos a La Buena Mesa</h1>
