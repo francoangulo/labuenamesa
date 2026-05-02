@@ -1,7 +1,7 @@
 export const TAG_CONFIG = {
   featured: {
     emoji: "🔥",
-    text: "Recomendado",
+    text: "Destacado",
     class: "tag-featured",
     absolute: true,
   },

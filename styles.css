@@ -234,6 +234,26 @@ nav {
   background: rgba(230, 126, 34, 0.1);
 }
 
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+
+  a {
+    background: var(--color-primary);
+    width: 100%;
+    max-width: 200px;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    &:hover {
+      background: #d35400;
+    }
+  }
+}
 .menu-content {
   padding: 2rem 1rem;
   max-width: 1200px;

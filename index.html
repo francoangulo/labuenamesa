@@ -24,41 +24,13 @@
       <p>Disfruta de los mejores platos tradicionales</p>
     </header>
 
-    <section class="categories" id="menu">
-      <h2>Categorías</h2>
-      <div class="category-filters">
-        <button class="category-btn active">Recomendados</button>
-        <button class="category-btn">Todos</button>
-        <button class="category-btn">Entradas</button>
-        <button class="category-btn">Principales</button>
-        <button class="category-btn">Postres</button>
-        <button class="category-btn">Bebidas</button>
-      </div>
-      <div class="search-bar">
-        <input
-          type="text"
-          placeholder="Buscar en el menú..."
-          class="search-input"
-        />
-        <button class="search-btn" aria-label="Buscar">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
-        </button>
-      </div>
+    <!-- boton para ver menú completo -->
+    <section class="menu-button">
+      <a href="menu.html" class="btn btn-primary">Ver menú completo</a>
     </section>
-
     <main class="menu-content">
-      <h2>Nuestro Menú</h2>
-      <div class="menu-grid">
+      <!-- grid destacados -->
+      <div class="menu-grid" id="destacados">
         <p class="loading-text">Cargando productos...</p>
       </div>
     </main>
