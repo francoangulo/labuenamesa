@@ -12,30 +12,11 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="carga-productos.js"></script>
-    <script type="module" src="auth.js"></script>
   </head>
   <body>
-    <nav>
-      <a href="/" class="logo">La Buena Mesa</a>
-      <button class="nav-toggle" aria-label="Menú">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="#">Menú</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li>
-          <a href="agregar-plato.html" class="nav-link-primary"
-            >Agregar plato</a
-          >
-        </li>
-      </ul>
-    </nav>
     <script type="module">
-      import { initAuthNav } from "./auth.js";
-      initAuthNav();
+      import { renderNav } from "./components/nav.js";
+      renderNav();
     </script>
 
     <header class="hero">
@@ -43,7 +24,7 @@
       <p>Disfruta de los mejores platos tradicionales</p>
     </header>
 
-    <section class="categories">
+    <section class="categories" id="menu">
       <h2>Categorías</h2>
       <div class="category-filters">
         <button class="category-btn active">Recomendados</button>
@@ -111,7 +92,7 @@
       </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
       <div class="contact-container">
         <h2>Contacto</h2>
         <div class="contact-grid">
