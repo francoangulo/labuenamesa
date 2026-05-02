@@ -93,6 +93,10 @@ nav {
   background: rgba(230, 126, 34, 0.1);
 }
 
+.nav-links a.active {
+  color: var(--color-primary);
+}
+
 .nav-toggle {
   display: flex;
   flex-direction: column;
