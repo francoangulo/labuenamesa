@@ -73,10 +73,9 @@ nav {
   padding: 0.25rem 0.75rem;
   border-radius: 0.75rem;
   letter-spacing: 0.5px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease;
   &:hover {
-    background-color: var(--color-primary);
-    color: var(--primary-bg-text-color);
+    animation: bounce 0.5s ease-in-out;
   }
 }
 
@@ -1185,4 +1184,22 @@ nav {
 .fab-scroll-top svg {
   width: 20px;
   height: 20px;
+}
+
+/* animación de rebote */
+
+@keyframes bounce {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }
