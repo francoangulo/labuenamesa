@@ -283,6 +283,7 @@ nav .nav-right .nav-links {
   padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 4rem;
 }
 
 .menu-grid {
@@ -988,6 +989,10 @@ nav .nav-right .nav-links {
 .contact {
   padding: 4rem 1rem;
   background: var(--color-bg);
+}
+
+.contact.menu {
+  background: var(--color-bg-secondary);
 }
 
 .contact-container {
