@@ -62,11 +62,38 @@ nav {
   margin: 0 auto;
   height: 100%;
   width: 100%;
+  background-color: var(--color-bg-secondary);
+  padding-inline: 3rem;
 }
 
+nav .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 25%;
+}
+
+nav .nav-middle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 50%;
+}
+
+nav .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 25%;
+}
+
+nav .nav-right .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-end;
+}
 .logo {
-  position: absolute;
-  left: 1rem;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-primary);
@@ -1387,8 +1414,7 @@ nav {
 }
 
 .auth-nav-item {
-  position: absolute;
-  right: 1rem;
+  position: relative;
   list-style: none;
 }
 

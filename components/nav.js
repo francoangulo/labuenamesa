@@ -1,21 +1,19 @@
 export function renderNav() {
   const navHTML = `
     <nav>
+    <div class="nav-left">
       <a href="index.html" class="logo">La Buena Mesa</a>
       <button class="nav-toggle" aria-label="Menú">
         <span></span>
         <span></span>
         <span></span>
       </button>
+    </div>
+    <div class="nav-middle">
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="menu.html">Menú</a></li>
         <li><a href="#contact">Contacto</a></li>
-        <li>
-          <a href="agregar-plato.html" class="nav-link-primary"
-            >Agregar plato</a
-          >
-        </li>
         <li class="nav-cart">
           <button class="cart-icon-btn" aria-label="Carrito de compras">
             <span class="cart-icon">🛒</span>
@@ -26,6 +24,15 @@ export function renderNav() {
           </div>
         </li>
       </ul>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li>
+          <a href="agregar-plato.html" class="nav-link-primary"
+            >Agregar plato</a
+          >
+        </li>
+    </div>
     </nav>
   `;
 

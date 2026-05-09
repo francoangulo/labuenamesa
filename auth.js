@@ -13,12 +13,13 @@ export function logout() {
 }
 
 export function initAuthNav() {
-  const navLinks = document.querySelector(".nav-links");
+  const navLinks = document.querySelector(".nav-right .nav-links");
   if (!navLinks) return;
 
   const agregarPlatoLink = navLinks.querySelector(
     'a[href="agregar-plato.html"]'
   );
+  const authList = document.querySelector(".nav-right .nav-links");
   const authItem = document.createElement("li");
   authItem.className = "auth-nav-item";
 
@@ -67,8 +68,8 @@ export function initAuthNav() {
 
   renderAuth();
 
-  const navContainer = document.querySelector("nav");
-  if (navContainer) {
-    navContainer.appendChild(authItem);
+  const navContainer = document.querySelector(".nav-right .nav-links");
+  if (authList) {
+    authList.appendChild(authItem);
   }
 }
