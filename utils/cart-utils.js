@@ -112,6 +112,7 @@ export function renderCartDropdown() {
         .join("")}
     </div>
     <div class="cart-dropdown-footer">
+      <button class="btn btn-secondary btn-small btn-clear-cart">Vaciar carrito</button>
       <div class="cart-dropdown-total">
         <span>Total</span>
         <span class="cart-total-price">$${getCartTotal().toFixed(2)}</span>
@@ -119,6 +120,14 @@ export function renderCartDropdown() {
       <a href="checkout.html" class="btn btn-primary btn-small">Finalizar pedido</a>
     </div>
   `;
+
+  const clearCartBtn = container.querySelector(".btn-clear-cart");
+  if (clearCartBtn) {
+    clearCartBtn.addEventListener("click", () => {
+      clearCart();
+      renderCartDropdown();
+    });
+  }
 
   container.querySelectorAll(".cart-item-remove").forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -145,11 +154,13 @@ export function initCartDropdown() {
 
   document.addEventListener("click", (e) => {
     const clickedRemove = e.target.closest(".cart-item-remove");
+    const clickedClearCart = e.target.closest(".btn-clear-cart");
 
     if (
       !dropdown.contains(e.target) &&
       !cartBtn.contains(e.target) &&
-      !clickedRemove
+      !clickedRemove &&
+      !clickedClearCart
     ) {
       dropdown.classList.remove("active");
     }
