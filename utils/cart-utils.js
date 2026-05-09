@@ -144,7 +144,13 @@ export function initCartDropdown() {
   });
 
   document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target) && !cartBtn.contains(e.target)) {
+    const clickedRemove = e.target.closest(".cart-item-remove");
+
+    if (
+      !dropdown.contains(e.target) &&
+      !cartBtn.contains(e.target) &&
+      !clickedRemove
+    ) {
       dropdown.classList.remove("active");
     }
   });

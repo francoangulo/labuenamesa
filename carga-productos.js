@@ -1,5 +1,5 @@
+import { addToCart, renderCartDropdown } from "./utils/cart-utils.js";
 import { renderAbsoluteTags, renderNormalTags } from "./utils/productos.js";
-import { addToCart } from "./utils/cart-utils.js";
 
 function renderProduct(product) {
   return `
@@ -14,7 +14,9 @@ function renderProduct(product) {
           <span class="menu-item-price">$${product.precio.toFixed(2)}</span>
         </div>
       </a>
-      <button class="quick-add-btn" data-product='${JSON.stringify(product)}' aria-label="Agregar al carrito">
+      <button class="quick-add-btn" data-product='${JSON.stringify(
+        product
+      )}' aria-label="Agregar al carrito">
         +
       </button>
     </article>
@@ -46,6 +48,7 @@ async function loadProducts() {
         e.stopPropagation();
         const product = JSON.parse(btn.dataset.product);
         addToCart(product);
+        renderCartDropdown();
         btn.textContent = "✓";
         setTimeout(() => {
           btn.textContent = "+";

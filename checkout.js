@@ -3,6 +3,7 @@ import {
   getCart,
   getCartTotal,
   saveCart,
+  updateCartBadge,
 } from "./utils/cart-utils.js";
 
 function renderCheckoutItems() {
@@ -50,6 +51,7 @@ function removeItem(productId) {
   saveCart(newCart);
   renderCheckoutItems();
   updateTotal();
+  updateCartBadge();
 }
 
 function updateTotal() {
