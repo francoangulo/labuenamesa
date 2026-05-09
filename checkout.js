@@ -1,49 +1,15 @@
-const defaultProducts = [
-  {
-    id: 1,
-    nombre: "Pizza Margarita",
-    descripcion: "Tomate, mozzarella, albahaca",
-    precio: 12.0,
-    imagen: "🍕",
-    tags: ["featured", "vegetarian"],
-  },
-  {
-    id: 2,
-    nombre: "Hamburguesa Clásica",
-    descripcion: "Carne, queso, lechuga, tomate",
-    precio: 10.0,
-    imagen: "🍔",
-    tags: ["featured"],
-  },
-  {
-    id: 3,
-    nombre: "Tacos al Pastor",
-    descripcion: "Carne marinada, cebolla, cilantro",
-    precio: 8.0,
-    imagen: "🌮",
-    tags: ["spicy"],
-  },
-];
+import {
+  clearCart,
+  getCart,
+  getCartTotal,
+  saveCart,
+} from "./utils/cart-utils.js";
 
-let cartItems = [];
-
-async function loadCart() {
-  const savedCart = localStorage.getItem("cart");
-
-  if (savedCart) {
-    cartItems = JSON.parse(savedCart);
-  } else {
-    cartItems = defaultProducts;
-  }
-
-  renderCartItems();
-  updateTotal();
-}
-
-function renderCartItems() {
+function renderCheckoutItems() {
   const container = document.getElementById("checkout-items");
-
   if (!container) return;
+
+  const cartItems = getCart();
 
   if (cartItems.length === 0) {
     container.innerHTML = '<p class="cart-empty">Tu carrito está vacío</p>';
@@ -57,10 +23,14 @@ function renderCartItems() {
       <div class="checkout-item-image">${item.imagen}</div>
       <div class="checkout-item-details">
         <h3>${item.nombre}</h3>
-        <p>${item.descripcion}</p>
+        <p>Cantidad: ${item.cantidad}</p>
       </div>
-      <div class="checkout-item-price">$${item.precio.toFixed(2)}</div>
-      <button class="remove-item" data-index="${index}" aria-label="Eliminar">×</button>
+      <div class="checkout-item-price">$${(item.precio * item.cantidad).toFixed(
+        2
+      )}</div>
+      <button class="remove-item" data-index="${index}" data-id="${
+        item.id
+      }" aria-label="Eliminar">×</button>
     </div>
   `
     )
@@ -68,30 +38,35 @@ function renderCartItems() {
 
   document.querySelectorAll(".remove-item").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const index = parseInt(e.target.dataset.index);
-      removeItem(index);
+      const id = parseInt(e.target.dataset.id);
+      removeItem(id);
     });
   });
 }
 
-function removeItem(index) {
-  cartItems.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-  renderCartItems();
+function removeItem(productId) {
+  const cart = getCart();
+  const newCart = cart.filter((item) => item.id !== productId);
+  saveCart(newCart);
+  renderCheckoutItems();
   updateTotal();
 }
 
 function updateTotal() {
-  const total = cartItems.reduce((sum, item) => sum + item.precio, 0);
   const totalElement = document.getElementById("checkout-total");
-
   if (totalElement) {
-    totalElement.textContent = `$${total.toFixed(2)}`;
+    totalElement.textContent = `$${getCartTotal().toFixed(2)}`;
   }
 }
 
 function handleFormSubmit(e) {
   e.preventDefault();
+
+  const cartItems = getCart();
+  if (cartItems.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
 
   const formData = new FormData(e.target);
   const orderData = {
@@ -101,19 +76,20 @@ function handleFormSubmit(e) {
     notas: formData.get("notas"),
     metodoPago: formData.get("pago"),
     items: cartItems,
-    total: cartItems.reduce((sum, item) => sum + item.precio, 0),
+    total: getCartTotal(),
   };
 
   console.log("Pedido confirmado:", orderData);
 
   alert("¡Pedido confirmado! Gracias por tu compra.");
 
-  localStorage.removeItem("cart");
+  clearCart();
   window.location.href = "index.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadCart();
+  renderCheckoutItems();
+  updateTotal();
 
   const form = document.getElementById("checkout-form");
   if (form) {

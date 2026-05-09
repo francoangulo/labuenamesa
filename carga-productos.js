@@ -1,9 +1,10 @@
 import { renderAbsoluteTags, renderNormalTags } from "./utils/productos.js";
+import { addToCart } from "./utils/cart-utils.js";
 
 function renderProduct(product) {
   return `
-    <a href="detalle-producto.html?id=${product.id}" class="menu-item-link">
-      <article class="menu-item">
+    <article class="menu-item">
+      <a href="detalle-producto.html?id=${product.id}" class="menu-item-link">
         <div class="menu-item-image">${product.imagen}</div>
         ${renderAbsoluteTags(product.tags)}
         <div class="menu-item-info">
@@ -12,8 +13,11 @@ function renderProduct(product) {
           <p>${product.descripcion}</p>
           <span class="menu-item-price">$${product.precio.toFixed(2)}</span>
         </div>
-      </article>
-    </a>
+      </a>
+      <button class="quick-add-btn" data-product='${JSON.stringify(product)}' aria-label="Agregar al carrito">
+        +
+      </button>
+    </article>
   `;
 }
 
@@ -35,6 +39,19 @@ async function loadProducts() {
         .map(renderProduct)
         .join("");
     }
+
+    document.querySelectorAll(".quick-add-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const product = JSON.parse(btn.dataset.product);
+        addToCart(product);
+        btn.textContent = "✓";
+        setTimeout(() => {
+          btn.textContent = "+";
+        }, 1000);
+      });
+    });
   } catch (error) {
     console.error("Error loading products:", error);
   }

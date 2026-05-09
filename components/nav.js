@@ -16,6 +16,15 @@ export function renderNav() {
             >Agregar plato</a
           >
         </li>
+        <li class="nav-cart">
+          <button class="cart-icon-btn" aria-label="Carrito de compras">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-badge" style="display: none;">0</span>
+          </button>
+          <div class="cart-dropdown">
+            <div class="cart-dropdown-content"></div>
+          </div>
+        </li>
       </ul>
     </nav>
   `;
@@ -45,7 +54,13 @@ export function renderNav() {
       : link.classList.remove("active");
   });
 
-  import("../auth.js").then((module) => {
-    module.initAuthNav();
-  });
+  Promise.all([import("../auth.js"), import("../utils/cart-utils.js")])
+    .then(([authModule, cartModule]) => {
+      authModule.initAuthNav();
+      cartModule.updateCartBadge();
+      cartModule.initCartDropdown();
+    })
+    .catch((error) => {
+      console.error("Error al cargar los módulos:", error);
+    });
 }
