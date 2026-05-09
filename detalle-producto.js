@@ -1,4 +1,5 @@
 import { renderNormalTags } from "./utils/productos.js";
+import { addToCart } from "./utils/cart-utils.js";
 
 function getProductId() {
   const params = new URLSearchParams(window.location.search);
@@ -15,9 +16,9 @@ function renderProductDetail(product) {
       <span class="product-detail-price">$${product.precio.toFixed(2)}</span>
       <div class="product-detail-actions">
         <div class="quantity-selector">
-          <button class="quantity-btn" aria-label="Decrease quantity">-</button>
+          <button class="quantity-btn" data-action="decrease" aria-label="Decrease quantity">-</button>
           <span class="quantity-value">1</span>
-          <button class="quantity-btn" aria-label="Increase quantity">+</button>
+          <button class="quantity-btn" data-action="increase" aria-label="Increase quantity">+</button>
         </div>
         <button class="btn btn-primary add-to-cart-btn">
           Agregar al pedido
@@ -48,6 +49,31 @@ async function loadProduct() {
 
     container.innerHTML = renderProductDetail(product);
     document.title = `${product.nombre} - La Buena Mesa`;
+
+    let quantity = 1;
+    const quantityValue = container.querySelector(".quantity-value");
+    const decreaseBtn = container.querySelector('[data-action="decrease"]');
+    const increaseBtn = container.querySelector('[data-action="increase"]');
+    const addBtn = container.querySelector(".add-to-cart-btn");
+
+    decreaseBtn.addEventListener("click", () => {
+      if (quantity > 1) {
+        quantity--;
+        quantityValue.textContent = quantity;
+      }
+    });
+
+    increaseBtn.addEventListener("click", () => {
+      quantity++;
+      quantityValue.textContent = quantity;
+    });
+
+    addBtn.addEventListener("click", () => {
+      for (let i = 0; i < quantity; i++) {
+        addToCart(product);
+      }
+      alert(`${product.nombre} agregado al carrito!`);
+    });
   } catch (error) {
     console.error("Error loading product:", error);
   }

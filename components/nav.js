@@ -1,22 +1,38 @@
 export function renderNav() {
   const navHTML = `
     <nav>
+    <div class="nav-left">
       <a href="index.html" class="logo">La Buena Mesa</a>
       <button class="nav-toggle" aria-label="Menú">
         <span></span>
         <span></span>
         <span></span>
       </button>
+    </div>
+    <div class="nav-middle">
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="menu.html">Menú</a></li>
         <li><a href="#contact">Contacto</a></li>
+        <li class="nav-cart">
+          <button class="cart-icon-btn" aria-label="Carrito de compras">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-badge" style="display: none;">0</span>
+          </button>
+          <div class="cart-dropdown">
+            <div class="cart-dropdown-content"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
         <li>
           <a href="agregar-plato.html" class="nav-link-primary"
             >Agregar plato</a
           >
         </li>
-      </ul>
+    </div>
     </nav>
   `;
 
@@ -45,7 +61,13 @@ export function renderNav() {
       : link.classList.remove("active");
   });
 
-  import("../auth.js").then((module) => {
-    module.initAuthNav();
-  });
+  Promise.all([import("../auth.js"), import("../utils/cart-utils.js")])
+    .then(([authModule, cartModule]) => {
+      authModule.initAuthNav();
+      cartModule.updateCartBadge();
+      cartModule.initCartDropdown();
+    })
+    .catch((error) => {
+      console.error("Error al cargar los módulos:", error);
+    });
 }
