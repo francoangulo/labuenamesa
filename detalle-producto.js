@@ -6,13 +6,28 @@ function getProductId() {
   return params.get("id");
 }
 
+function renderIngredients(ingredientes) {
+  if (!ingredientes || ingredientes.length === 0) return "";
+  return `
+    <div class="product-detail-ingredients">
+      <h3>Ingredientes</h3>
+      <ul class="ingredients-list">
+        ${ingredientes.map((ing) => `<li class="ingredient-item">${ing}</li>`).join("")}
+      </ul>
+    </div>
+  `;
+}
+
 function renderProductDetail(product) {
   return `
-    <div class="product-detail-image">${product.imagen}</div>
-    <div class="product-detail-info">
+    <div class="product-detail-visual">
+      <div class="product-detail-image">${product.imagen}</div>
       ${renderNormalTags(product.tags)}
+    </div>
+    <div class="product-detail-info">
       <h1>${product.nombre}</h1>
-      <p class="product-detail-description">${product.descripcion}</p>
+      <p class="product-detail-description">${product.descripcion_larga || product.descripcion}</p>
+      ${renderIngredients(product.ingredientes)}
       <span class="product-detail-price">$${product.precio.toFixed(2)}</span>
       <div class="product-detail-actions">
         <div class="quantity-selector">
