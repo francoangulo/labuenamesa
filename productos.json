@@ -2,129 +2,161 @@
   {
     "id": 1,
     "nombre": "Pizza Margarita",
-    "descripcion": "Tomate, mozzarella, albahaca",
+    "descripcion": "Masa artesanal, mozzarella fresca y albahaca",
+    "descripcion_larga": "La clásica italiana horneada a la perfección con nuestra masa artesanal de fermentación lenta, salsa de tomate San Marzano y el mejor mozzarella fresco.",
     "precio": 12.0,
     "imagen": "🍕",
-    "tags": ["featured", "vegetarian"]
+    "tags": ["featured", "vegetarian"],
+    "ingredientes": ["Masa artesanal", "Salsa de tomate San Marzano", "Mozzarella fresca", "Albahaca fresca", "Aceite de oliva virgen extra"]
   },
   {
     "id": 2,
     "nombre": "Hamburguesa Clásica",
-    "descripcion": "Carne, queso, lechuga, tomate",
+    "descripcion": "Carne angus, cheddar y vegetales frescos",
+    "descripcion_larga": "Jugosa carne angus con queso cheddar derretido, servida en un pan brioche artesanal con vegetales frescos y nuestra salsa secreta.",
     "precio": 10.0,
     "imagen": "🍔",
-    "tags": ["featured"]
+    "tags": ["featured"],
+    "ingredientes": ["Carne angus 200g", "Queso cheddar", "Lechuga fresca", "Tomate", "Pan brioche artesanal", "Salsa de la casa"]
   },
   {
     "id": 3,
     "nombre": "Tacos al Pastor",
-    "descripcion": "Carne marinada, cebolla, cilantro",
+    "descripcion": "Carne marinada con piña y cilantro fresco",
+    "descripcion_larga": "Tradicionales tacos con carne marinada en achiote y piña asada, servidos en tortilla de maíz con cebolla y cilantro fresco.",
     "precio": 8.0,
     "imagen": "🌮",
-    "tags": ["spicy"]
+    "tags": ["spicy"],
+    "ingredientes": ["Carne de cerdo marinada", "Piña asada", "Cebolla", "Cilantro fresco", "Tortilla de maíz", "Salsa verde"]
   },
   {
     "id": 4,
     "nombre": "Spaghetti Bolognese",
-    "descripcion": "Pasta, carne molida, tomate",
+    "descripcion": "Pasta al dente con ragú de carne y parmesano",
+    "descripcion_larga": "Pasta al dente bañada en nuestro ragú de carne cocido a fuego lento durante horas con tomate perita, vino tinto y hierbas aromáticas.",
     "precio": 11.0,
     "imagen": "🍝",
-    "tags": ["vegetarian"]
+    "tags": ["popular"],
+    "ingredientes": ["Pasta spaghetti", "Carne molida", "Tomate perita", "Cebolla", "Ajo", "Vino tinto", "Parmesano"]
   },
   {
     "id": 5,
     "nombre": "Ensalada César",
-    "descripcion": "Lechuga, pollo, crutones, parmesano",
+    "descripcion": "Lechuga romana, pollo grillado y crutones",
+    "descripcion_larga": "Crujiente lechuga romana con pollo grillado, crutones de pan y nuestro aderezo César casero, coronado con lascas de parmesano.",
     "precio": 9.0,
     "imagen": "🥗",
-    "tags": ["vegetarian", "new"]
+    "tags": ["vegetarian", "new"],
+    "ingredientes": ["Lechuga romana", "Pollo grillado", "Crutones de pan", "Queso parmesano", "Aderezo César casero"]
   },
   {
     "id": 6,
     "nombre": "Flan de Vainilla",
-    "descripcion": "Flan con caramelo y crema",
+    "descripcion": "Flan casero con caramelo y vainilla",
+    "descripcion_larga": "Suave flan con caramelo casero elaborado con vainilla de Madagascar, una receta tradicional que nunca falla para endulzar el paladar.",
     "precio": 5.0,
     "imagen": "🍰",
-    "tags": ["featured"]
+    "tags": ["featured"],
+    "ingredientes": ["Huevos", "Leche condensada", "Vainilla de Madagascar", "Caramelo casero", "Crema batida"]
   },
   {
     "id": 7,
     "nombre": "Empanadas Argentinas",
-    "descripcion": "Carne, cebolla, huevo duro, aceitunas",
+    "descripcion": "Carne cortada a cuchillo, huevo y aceitunas",
+    "descripcion_larga": "Empanadas horneadas con el clásico relleno de carne cortada a cuchillo, huevo duro, aceitunas y comino, con un repulgue artesanal.",
     "precio": 6.0,
     "imagen": "🥟",
-    "tags": ["featured", "popular"]
+    "tags": ["featured", "popular"],
+    "ingredientes": ["Carne cortada a cuchillo", "Cebolla", "Huevo duro", "Aceitunas verdes", "Comino", "Masa quebrada"]
   },
   {
     "id": 8,
     "nombre": "Paella Valenciana",
-    "descripcion": "Arroz, mariscos, azafrán, pollo",
+    "descripcion": "Arroz bomba con mariscos y azafrán",
+    "descripcion_larga": "Arroz bomba cocido en caldo de mariscos con azafrán, pimiento y guisantes. Una explosión de sabor mediterráneo en cada bocado.",
     "precio": 18.0,
     "imagen": "🍲",
-    "tags": ["featured"]
+    "tags": ["featured"],
+    "ingredientes": ["Arroz bomba", "Mariscos variados", "Azafrán", "Pollo", "Pimiento", "Guisantes", "Caldo de pescado"]
   },
   {
     "id": 9,
     "nombre": "Sushi Variado",
-    "descripcion": "Salmón, atún, langostino, aguacate",
+    "descripcion": "Salmón, atún y langostino fresco",
+    "descripcion_larga": "Selección de rolls con pescado fresco del día, envueltos en arroz sazonado y alga nori, servidos con wasabi y jengibre encurtido.",
     "precio": 15.0,
     "imagen": "🍣",
-    "tags": ["new", "featured"]
+    "tags": ["new", "featured"],
+    "ingredientes": ["Salmón fresco", "Atún rojo", "Langostinos", "Aguacate", "Arroz sushi", "Alga nori", "Wasabi", "Jengibre"]
   },
   {
     "id": 10,
     "nombre": "Pollo a la Naranja",
     "descripcion": "Pollo glaseado con salsa de naranja",
+    "descripcion_larga": "Pollo crocante bañado en una salsa agridulce de naranja natural con jengibre, acompañado de arroz jazmín y cebolla de verdeo.",
     "precio": 13.0,
     "imagen": "🍗",
-    "tags": ["popular"]
+    "tags": ["popular"],
+    "ingredientes": ["Pollo", "Naranja natural", "Salsa de soja", "Jengibre", "Arroz jazmín", "Cebolla de verdeo"]
   },
   {
     "id": 11,
     "nombre": "Gazpacho",
-    "descripcion": "Sopa fría de tomate, pepino, pimiento",
+    "descripcion": "Sopa fría de tomate, pepino y pimiento",
+    "descripcion_larga": "Sopa fría andaluza con tomates maduros, pepino y pimiento rojo, aliñada con vinagre de Jerez y aceite de oliva. Refrescante y llena de sabor.",
     "precio": 7.0,
     "imagen": "🥣",
-    "tags": ["vegetarian", "spicy"]
+    "tags": ["vegetarian", "spicy"],
+    "ingredientes": ["Tomate", "Pepino", "Pimiento rojo", "Ajo", "Pan", "Vinagre de Jerez", "Aceite de oliva"]
   },
   {
     "id": 12,
     "nombre": "Risotto de Hongos",
-    "descripcion": "Arroz cremoso con setas y parmesano",
+    "descripcion": "Arroz cremoso con hongos silvestres",
+    "descripcion_larga": "Arroz arbóreo cremoso con una selección de hongos silvestres salteados, vino blanco y parmesano rallado. Un plato reconfortante y elegante.",
     "precio": 14.0,
     "imagen": "🍚",
-    "tags": ["vegetarian"]
+    "tags": ["vegetarian"],
+    "ingredientes": ["Arroz arbóreo", "Hongos silvestres", "Parmesano", "Vino blanco", "Caldo de verduras", "Manteca", "Cebolla"]
   },
   {
     "id": 13,
     "nombre": "Ceviche Peruano",
-    "descripcion": "Pescado fresco en limón, cebolla morada",
+    "descripcion": "Pescado fresco marinado en limón",
+    "descripcion_larga": "Pescado fresco marinado en limón con ají limo, cebolla morada y cilantro, servido con camote y choclo. Un clásico de la costa peruana.",
     "precio": 16.0,
     "imagen": "🐟",
-    "tags": ["new", "popular"]
+    "tags": ["new", "popular"],
+    "ingredientes": ["Pescado blanco fresco", "Limón", "Cebolla morada", "Ají limo", "Camote", "Choclo", "Cilantro"]
   },
   {
     "id": 14,
     "nombre": "Tiramisú",
-    "descripcion": "Bizcocho, café, mascarpone, cacao",
+    "descripcion": "Mascarpone, café y cacao",
+    "descripcion_larga": "El postre italiano por excelencia: capas de bizcocho de champagne embebido en café espresso alternadas con una cremosa mascarpone y cacao.",
     "precio": 8.0,
     "imagen": "🍮",
-    "tags": ["popular"]
+    "tags": ["popular"],
+    "ingredientes": ["Bizcochos de champagne", "Café espresso", "Mascarpone", "Huevos", "Cacao amargo", "Licor"]
   },
   {
     "id": 15,
     "nombre": "Curry de Garbanzos",
-    "descripcion": "Garbanzos, leche de coco, especias hindúes",
+    "descripcion": "Garbanzos en leche de coco y curry",
+    "descripcion_larga": "Garbanzos cocidos en leche de coco con curry, cúrcuma y jengibre. Un viaje a la India servido con arroz basmati y cilantro fresco.",
     "precio": 10.0,
     "imagen": "🍛",
-    "tags": ["vegetarian", "spicy"]
+    "tags": ["vegetarian", "spicy"],
+    "ingredientes": ["Garbanzos", "Leche de coco", "Curry en polvo", "Cúrcuma", "Jengibre", "Arroz basmati", "Cilantro"]
   },
   {
     "id": 16,
     "nombre": "Lasagna Casera",
-    "descripcion": "Placas de pasta, ragú, bechamel, queso",
+    "descripcion": "Pasta artesanal con ragú y bechamel",
+    "descripcion_larga": "Capas de pasta artesanal intercaladas con ragú de carne, salsa bechamel y quesos gratinados. Horneada a punto para obtener la textura perfecta.",
     "precio": 12.0,
     "imagen": "🫙",
-    "tags": ["popular"]
+    "tags": ["popular"],
+    "ingredientes": ["Placas de lasagna", "Ragú de carne", "Salsa bechamel", "Queso mozzarella", "Parmesano", "Albahaca"]
   }
 ]
