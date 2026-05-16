@@ -16,7 +16,7 @@ export function renderAbsoluteTags(tags) {
     .filter((t) => TAG_CONFIG[t]?.absolute)
     .map(
       (t) =>
-        `<span class="tag ${TAG_CONFIG[t].class} tag-absolute">${TAG_CONFIG[t].emoji} ${TAG_CONFIG[t].text}</span>`
+        `<span class="tag ${TAG_CONFIG[t].class} tag-absolute">${TAG_CONFIG[t].emoji} <span class="tag-label">${TAG_CONFIG[t].text}</span></span>`
     )
     .join("");
 }

@@ -3,11 +3,6 @@ export function renderNav() {
     <nav>
     <div class="nav-left">
       <a href="index.html" class="logo">La Buena Mesa</a>
-      <button class="nav-toggle" aria-label="Menú">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
     <div class="nav-middle">
       <ul class="nav-links">
@@ -27,8 +22,8 @@ export function renderNav() {
     </div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li>
-          <a href="agregar-plato.html" class="nav-link-primary"
+        <li class="add-meal-btn">
+          <a href="agregar-plato.html" class="nav-link-primary desktop-only"
             >Agregar plato</a
           >
         </li>

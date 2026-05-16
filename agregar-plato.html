@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="https://fav.farm/🍔" />
     <script type="module">
       import { isLoggedIn } from "./auth.js";
       if (!isLoggedIn()) {
@@ -25,13 +26,15 @@
     </script>
 
     <main class="form-page">
-      <div class="form-container">
+      <div class="form-wrapper">
+        <a href="index.html" class="back-link"> ← Volver al menú </a>
         <h1>Agregar Nuevo Plato</h1>
         <p class="form-subtitle">
           Completa los detalles del plato para agregarlo al menú
         </p>
 
-        <form id="platoForm" class="plato-form">
+        <div class="form-container">
+          <form id="platoForm" class="plato-form">
           <div class="form-group">
             <label for="nombre">Nombre del plato</label>
             <input
@@ -97,6 +100,7 @@
           </div>
         </form>
       </div>
+    </div>
     </main>
 
     <script type="module">
