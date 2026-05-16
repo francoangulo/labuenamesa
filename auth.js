@@ -43,6 +43,12 @@ export function initAuthNav() {
         renderAuth();
       });
 
+      const addMealBtn = document.createElement("a");
+      addMealBtn.href = "agregar-plato.html";
+      addMealBtn.className = "nav-link-primary mobile-only add-meal-btn";
+      addMealBtn.textContent = "Agregar plato";
+
+      dropdown.appendChild(addMealBtn);
       dropdown.appendChild(logoutBtn);
 
       avatarBtn.addEventListener("click", (e) => {
@@ -60,8 +66,13 @@ export function initAuthNav() {
       agregarPlatoLink.style.display = "none";
       const loginBtn = document.createElement("a");
       loginBtn.href = "login.html";
-      loginBtn.className = "nav-link-login";
+      loginBtn.className = "nav-link-login desktop-only";
       loginBtn.textContent = "Iniciar sesión";
+      const loginBtnMobile = document.createElement("a");
+      loginBtnMobile.href = "login.html";
+      loginBtnMobile.className = "nav-link-login mobile-only";
+      loginBtnMobile.textContent = "🔐";
+      authItem.appendChild(loginBtnMobile);
       authItem.appendChild(loginBtn);
     }
   }

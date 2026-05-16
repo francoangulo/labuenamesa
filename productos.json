@@ -7,7 +7,13 @@
     "precio": 12.0,
     "imagen": "🍕",
     "tags": ["featured", "vegetarian"],
-    "ingredientes": ["Masa artesanal", "Salsa de tomate San Marzano", "Mozzarella fresca", "Albahaca fresca", "Aceite de oliva virgen extra"]
+    "ingredientes": [
+      "Masa artesanal",
+      "Salsa de tomate San Marzano",
+      "Mozzarella fresca",
+      "Albahaca fresca",
+      "Aceite de oliva virgen extra"
+    ]
   },
   {
     "id": 2,
@@ -17,7 +23,14 @@
     "precio": 10.0,
     "imagen": "🍔",
     "tags": ["featured"],
-    "ingredientes": ["Carne angus 200g", "Queso cheddar", "Lechuga fresca", "Tomate", "Pan brioche artesanal", "Salsa de la casa"]
+    "ingredientes": [
+      "Carne angus 200g",
+      "Queso cheddar",
+      "Lechuga fresca",
+      "Tomate",
+      "Pan brioche artesanal",
+      "Salsa de la casa"
+    ]
   },
   {
     "id": 3,
@@ -27,7 +40,14 @@
     "precio": 8.0,
     "imagen": "🌮",
     "tags": ["spicy"],
-    "ingredientes": ["Carne de cerdo marinada", "Piña asada", "Cebolla", "Cilantro fresco", "Tortilla de maíz", "Salsa verde"]
+    "ingredientes": [
+      "Carne de cerdo marinada",
+      "Piña asada",
+      "Cebolla",
+      "Cilantro fresco",
+      "Tortilla de maíz",
+      "Salsa verde"
+    ]
   },
   {
     "id": 4,
@@ -37,7 +57,15 @@
     "precio": 11.0,
     "imagen": "🍝",
     "tags": ["popular"],
-    "ingredientes": ["Pasta spaghetti", "Carne molida", "Tomate perita", "Cebolla", "Ajo", "Vino tinto", "Parmesano"]
+    "ingredientes": [
+      "Pasta spaghetti",
+      "Carne molida",
+      "Tomate perita",
+      "Cebolla",
+      "Ajo",
+      "Vino tinto",
+      "Parmesano"
+    ]
   },
   {
     "id": 5,
@@ -46,8 +74,14 @@
     "descripcion_larga": "Crujiente lechuga romana con pollo grillado, crutones de pan y nuestro aderezo César casero, coronado con lascas de parmesano.",
     "precio": 9.0,
     "imagen": "🥗",
-    "tags": ["vegetarian", "new"],
-    "ingredientes": ["Lechuga romana", "Pollo grillado", "Crutones de pan", "Queso parmesano", "Aderezo César casero"]
+    "tags": ["vegetarian", "new", "popular"],
+    "ingredientes": [
+      "Lechuga romana",
+      "Pollo grillado",
+      "Crutones de pan",
+      "Queso parmesano",
+      "Aderezo César casero"
+    ]
   },
   {
     "id": 6,
@@ -57,7 +91,13 @@
     "precio": 5.0,
     "imagen": "🍰",
     "tags": ["featured"],
-    "ingredientes": ["Huevos", "Leche condensada", "Vainilla de Madagascar", "Caramelo casero", "Crema batida"]
+    "ingredientes": [
+      "Huevos",
+      "Leche condensada",
+      "Vainilla de Madagascar",
+      "Caramelo casero",
+      "Crema batida"
+    ]
   },
   {
     "id": 7,
@@ -67,7 +107,14 @@
     "precio": 6.0,
     "imagen": "🥟",
     "tags": ["featured", "popular"],
-    "ingredientes": ["Carne cortada a cuchillo", "Cebolla", "Huevo duro", "Aceitunas verdes", "Comino", "Masa quebrada"]
+    "ingredientes": [
+      "Carne cortada a cuchillo",
+      "Cebolla",
+      "Huevo duro",
+      "Aceitunas verdes",
+      "Comino",
+      "Masa quebrada"
+    ]
   },
   {
     "id": 8,
@@ -77,7 +124,15 @@
     "precio": 18.0,
     "imagen": "🍲",
     "tags": ["featured"],
-    "ingredientes": ["Arroz bomba", "Mariscos variados", "Azafrán", "Pollo", "Pimiento", "Guisantes", "Caldo de pescado"]
+    "ingredientes": [
+      "Arroz bomba",
+      "Mariscos variados",
+      "Azafrán",
+      "Pollo",
+      "Pimiento",
+      "Guisantes",
+      "Caldo de pescado"
+    ]
   },
   {
     "id": 9,
@@ -87,7 +142,16 @@
     "precio": 15.0,
     "imagen": "🍣",
     "tags": ["new", "featured"],
-    "ingredientes": ["Salmón fresco", "Atún rojo", "Langostinos", "Aguacate", "Arroz sushi", "Alga nori", "Wasabi", "Jengibre"]
+    "ingredientes": [
+      "Salmón fresco",
+      "Atún rojo",
+      "Langostinos",
+      "Aguacate",
+      "Arroz sushi",
+      "Alga nori",
+      "Wasabi",
+      "Jengibre"
+    ]
   },
   {
     "id": 10,
@@ -97,7 +161,14 @@
     "precio": 13.0,
     "imagen": "🍗",
     "tags": ["popular"],
-    "ingredientes": ["Pollo", "Naranja natural", "Salsa de soja", "Jengibre", "Arroz jazmín", "Cebolla de verdeo"]
+    "ingredientes": [
+      "Pollo",
+      "Naranja natural",
+      "Salsa de soja",
+      "Jengibre",
+      "Arroz jazmín",
+      "Cebolla de verdeo"
+    ]
   },
   {
     "id": 11,
@@ -107,7 +178,15 @@
     "precio": 7.0,
     "imagen": "🥣",
     "tags": ["vegetarian", "spicy"],
-    "ingredientes": ["Tomate", "Pepino", "Pimiento rojo", "Ajo", "Pan", "Vinagre de Jerez", "Aceite de oliva"]
+    "ingredientes": [
+      "Tomate",
+      "Pepino",
+      "Pimiento rojo",
+      "Ajo",
+      "Pan",
+      "Vinagre de Jerez",
+      "Aceite de oliva"
+    ]
   },
   {
     "id": 12,
@@ -117,7 +196,15 @@
     "precio": 14.0,
     "imagen": "🍚",
     "tags": ["vegetarian"],
-    "ingredientes": ["Arroz arbóreo", "Hongos silvestres", "Parmesano", "Vino blanco", "Caldo de verduras", "Manteca", "Cebolla"]
+    "ingredientes": [
+      "Arroz arbóreo",
+      "Hongos silvestres",
+      "Parmesano",
+      "Vino blanco",
+      "Caldo de verduras",
+      "Manteca",
+      "Cebolla"
+    ]
   },
   {
     "id": 13,
@@ -127,7 +214,15 @@
     "precio": 16.0,
     "imagen": "🐟",
     "tags": ["new", "popular"],
-    "ingredientes": ["Pescado blanco fresco", "Limón", "Cebolla morada", "Ají limo", "Camote", "Choclo", "Cilantro"]
+    "ingredientes": [
+      "Pescado blanco fresco",
+      "Limón",
+      "Cebolla morada",
+      "Ají limo",
+      "Camote",
+      "Choclo",
+      "Cilantro"
+    ]
   },
   {
     "id": 14,
@@ -137,7 +232,14 @@
     "precio": 8.0,
     "imagen": "🍮",
     "tags": ["popular"],
-    "ingredientes": ["Bizcochos de champagne", "Café espresso", "Mascarpone", "Huevos", "Cacao amargo", "Licor"]
+    "ingredientes": [
+      "Bizcochos de champagne",
+      "Café espresso",
+      "Mascarpone",
+      "Huevos",
+      "Cacao amargo",
+      "Licor"
+    ]
   },
   {
     "id": 15,
@@ -147,7 +249,15 @@
     "precio": 10.0,
     "imagen": "🍛",
     "tags": ["vegetarian", "spicy"],
-    "ingredientes": ["Garbanzos", "Leche de coco", "Curry en polvo", "Cúrcuma", "Jengibre", "Arroz basmati", "Cilantro"]
+    "ingredientes": [
+      "Garbanzos",
+      "Leche de coco",
+      "Curry en polvo",
+      "Cúrcuma",
+      "Jengibre",
+      "Arroz basmati",
+      "Cilantro"
+    ]
   },
   {
     "id": 16,
@@ -157,6 +267,13 @@
     "precio": 12.0,
     "imagen": "🫙",
     "tags": ["popular"],
-    "ingredientes": ["Placas de lasagna", "Ragú de carne", "Salsa bechamel", "Queso mozzarella", "Parmesano", "Albahaca"]
+    "ingredientes": [
+      "Placas de lasagna",
+      "Ragú de carne",
+      "Salsa bechamel",
+      "Queso mozzarella",
+      "Parmesano",
+      "Albahaca"
+    ]
   }
 ]
