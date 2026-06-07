@@ -12,18 +12,10 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="https://fav.farm/🍔" />
-    <script type="module">
-      import { isLoggedIn } from "./auth.js";
-      if (!isLoggedIn()) {
-        window.location.href = "login.html";
-      }
-    </script>
+    <script type="module" src="agregar-plato.js"></script>
   </head>
   <body>
-    <script type="module">
-      import { renderNav } from "./components/nav.js";
-      renderNav();
-    </script>
+    <script type="module" src="components/nav.js"></script>
 
     <main class="form-page">
       <div class="form-wrapper">
@@ -129,50 +121,6 @@
       </div>
     </main>
 
-    <script type="module">
-      import { initFabScrollTop } from "./components/fab-scroll-top.js";
-      import { insertProduct } from "./services/supabase.js";
-
-      initFabScrollTop();
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("platoForm");
-
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          alert("submit");
-
-          const formData = new FormData(form);
-
-          const product = {
-            name: formData.get("nombre"),
-            description: formData.get("descripcion"),
-            description_long: formData.get("descripcion_larga"),
-            price: parseFloat(formData.get("precio")),
-            image_url: formData.get("imagen"),
-            ingredients: formData
-              .get("ingredientes")
-              .split(",")
-              .map((s) => s.trim())
-              .filter(Boolean),
-            category: formData.get("categoria"),
-          };
-
-          const submitBtn = form.querySelector("button[type='submit']");
-          submitBtn.disabled = true;
-          submitBtn.textContent = "Guardando...";
-
-          try {
-            await insertProduct(product);
-            form.reset();
-            alert("¡Plato agregado exitosamente!");
-          } catch (err) {
-            alert("Error al guardar el plato: " + err.message);
-          } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Guardar Plato";
-          }
-        });
-      });
-    </script>
+    <script type="module" src="components/fab-scroll-top.js"></script>
   </body>
 </html>
