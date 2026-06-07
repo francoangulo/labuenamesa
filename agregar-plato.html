@@ -35,77 +35,144 @@
 
         <div class="form-container">
           <form id="platoForm" class="plato-form">
-          <div class="form-group">
-            <label for="nombre">Nombre del plato</label>
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              placeholder="Ej: Paella Valenciana"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="descripcion">Descripción</label>
-            <textarea
-              id="descripcion"
-              name="descripcion"
-              rows="3"
-              placeholder="Describe los ingredientes y características del plato"
-              required
-            ></textarea>
-          </div>
-
-          <div class="form-row">
             <div class="form-group">
-              <label for="precio">Precio ($)</label>
+              <label for="nombre">Nombre del plato</label>
               <input
-                type="number"
-                id="precio"
-                name="precio"
-                step="0.01"
-                min="0"
-                placeholder="0.00"
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Ej: Paella Valenciana"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="categoria">Categoría</label>
-              <select id="categoria" name="categoria" required>
-                <option value="">Selecciona una categoría</option>
-                <option value="entradas">Entradas</option>
-                <option value="principales">Principales</option>
-                <option value="postres">Postres</option>
-                <option value="bebidas">Bebidas</option>
-              </select>
+              <label for="descripcion">Descripción</label>
+              <textarea
+                id="descripcion"
+                name="descripcion"
+                rows="3"
+                placeholder="Describe los ingredientes y características del plato"
+                required
+              ></textarea>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="imagen">Emoji representativo</label>
-            <input
-              type="text"
-              id="imagen"
-              name="imagen"
-              placeholder="Ej: 🍝 (ingresa un emoji)"
-              required
-            />
-          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="precio">Precio ($)</label>
+                <input
+                  type="number"
+                  id="precio"
+                  name="precio"
+                  step="0.01"
+                  min="0"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
 
-          <div class="form-actions">
-            <a href="index.html" class="btn btn-secondary">Cancelar</a>
-            <button type="submit" class="btn btn-primary">Guardar Plato</button>
-          </div>
-        </form>
+              <div class="form-group">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria" required>
+                  <option value="">Selecciona una categoría</option>
+                  <option value="entradas">Entradas</option>
+                  <option value="principales">Principales</option>
+                  <option value="postres">Postres</option>
+                  <option value="bebidas">Bebidas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="imagen">Emoji representativo</label>
+              <input
+                type="text"
+                id="imagen"
+                name="imagen"
+                placeholder="Ej: 🍝 (ingresa un emoji)"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion_larga">Descripción larga</label>
+              <textarea
+                id="descripcion_larga"
+                name="descripcion_larga"
+                rows="4"
+                placeholder="Descripción más detallada del plato"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="ingredientes"
+                >Ingredientes (separados por coma)</label
+              >
+              <input
+                type="text"
+                id="ingredientes"
+                name="ingredientes"
+                placeholder="Ej: Masa artesanal, Mozzarella, Albahaca"
+                required
+              />
+            </div>
+
+            <div class="form-actions">
+              <a href="index.html" class="btn btn-secondary">Cancelar</a>
+              <button type="submit" class="btn btn-primary">
+                Guardar Plato
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </main>
 
     <script type="module">
-      import { initFabScrollTop } from "./fab-scroll-top.js";
+      import { initFabScrollTop } from "./components/fab-scroll-top.js";
+      import { insertProduct } from "./services/supabase.js";
+
       initFabScrollTop();
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("platoForm");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          alert("submit");
+
+          const formData = new FormData(form);
+
+          const product = {
+            name: formData.get("nombre"),
+            description: formData.get("descripcion"),
+            description_long: formData.get("descripcion_larga"),
+            price: parseFloat(formData.get("precio")),
+            image_url: formData.get("imagen"),
+            ingredients: formData
+              .get("ingredientes")
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean),
+            category: formData.get("categoria"),
+          };
+
+          const submitBtn = form.querySelector("button[type='submit']");
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Guardando...";
+
+          try {
+            await insertProduct(product);
+            form.reset();
+            alert("¡Plato agregado exitosamente!");
+          } catch (err) {
+            alert("Error al guardar el plato: " + err.message);
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Guardar Plato";
+          }
+        });
+      });
     </script>
   </body>
 </html>
