@@ -1,11 +1,12 @@
 import { addToCart, renderCartDropdown } from "./utils/cart-utils.js";
 import { renderAbsoluteTags, renderNormalTags } from "./utils/productos.js";
+import { getProducts } from "./services/supabase.js";
 
 function renderProduct(product) {
   return `
     <article class="menu-item">
       <a href="detalle-producto.html?id=${product.id}" class="menu-item-link">
-        <div class="menu-item-image">${product.imagen}</div>
+        <div class="menu-item-image"><img src="${product.imagen}" alt="${product.nombre}" /></div>
         ${renderAbsoluteTags(product.tags)}
         <div class="menu-item-info">
           ${renderNormalTags(product.tags)}
@@ -25,8 +26,7 @@ function renderProduct(product) {
 
 async function loadProducts() {
   try {
-    const response = await fetch("productos.json");
-    const products = await response.json();
+    const products = await getProducts();
     const container = document.querySelector(".menu-grid:not(#destacados)");
     const destacadosContainer = document.querySelector("#destacados");
     const productosDestacados = products.filter((product) =>

@@ -1,5 +1,6 @@
 import { renderNormalTags } from "./utils/productos.js";
 import { addToCart } from "./utils/cart-utils.js";
+import { getProducts } from "./services/supabase.js";
 
 function getProductId() {
   const params = new URLSearchParams(window.location.search);
@@ -21,7 +22,7 @@ function renderIngredients(ingredientes) {
 function renderProductDetail(product) {
   return `
     <div class="product-detail-visual">
-      <div class="product-detail-image">${product.imagen}</div>
+      <div class="product-detail-image"><img src="${product.imagen}" alt="${product.nombre}" /></div>
       ${renderNormalTags(product.tags)}
     </div>
     <div class="product-detail-info">
@@ -51,8 +52,7 @@ async function loadProduct() {
       return;
     }
 
-    const response = await fetch("productos.json");
-    const products = await response.json();
+    const products = await getProducts();
     const product = products.find((p) => p.id === parseInt(productId));
 
     const container = document.querySelector("#product-detail-content");
