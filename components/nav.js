@@ -66,3 +66,5 @@ export function renderNav() {
       console.error("Error al cargar los módulos:", error);
     });
 }
+
+renderNav();

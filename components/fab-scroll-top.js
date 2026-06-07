@@ -17,3 +17,5 @@ export function initFabScrollTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+
+initFabScrollTop();
