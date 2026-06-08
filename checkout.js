@@ -21,7 +21,7 @@ function renderCheckoutItems() {
     .map(
       (item, index) => `
     <div class="checkout-item">
-      <div class="checkout-item-image">${item.imagen}</div>
+      <img class="checkout-item-img" src="${item.imagen}" alt="${item.nombre}" />
       <div class="checkout-item-details">
         <h3>${item.nombre}</h3>
         <p>Cantidad: ${item.cantidad}</p>

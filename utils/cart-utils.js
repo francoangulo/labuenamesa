@@ -95,7 +95,7 @@ export function renderCartDropdown() {
         .map(
           (item) => `
         <div class="cart-dropdown-item" data-id="${item.id}">
-          <span class="cart-item-emoji">${item.imagen}</span>
+          <img class="cart-item-img" src="${item.imagen}" alt="${item.nombre}" />
           <div class="cart-item-info">
             <span class="cart-item-name">${item.nombre}</span>
             <span class="cart-item-qty">Cantidad: ${item.cantidad}</span>
