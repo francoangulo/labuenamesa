@@ -142,20 +142,23 @@ function setupTagFilters() {
     });
   }
 
-  document.querySelector(".tag-filters").addEventListener("click", (e) => {
-    const btn = e.target.closest(".tag-filter-btn");
-    if (!btn) return;
+  const tagFiltersContainer = document.querySelector(".tag-filters");
+  if (tagFiltersContainer) {
+    tagFiltersContainer.addEventListener("click", (e) => {
+      const btn = e.target.closest(".tag-filter-btn");
+      if (!btn) return;
 
-    const tag = btn.dataset.tag;
-    if (selectedTags.has(tag)) {
-      selectedTags.delete(tag);
-      btn.classList.remove("active");
-    } else {
-      selectedTags.add(tag);
-      btn.classList.add("active");
-    }
-    applyFilters();
-  });
+      const tag = btn.dataset.tag;
+      if (selectedTags.has(tag)) {
+        selectedTags.delete(tag);
+        btn.classList.remove("active");
+      } else {
+        selectedTags.add(tag);
+        btn.classList.add("active");
+      }
+      applyFilters();
+    });
+  }
 }
 
 async function loadProducts() {

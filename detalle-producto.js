@@ -1,6 +1,7 @@
 import { renderNormalTags } from "./utils/productos.js";
 import { addToCart } from "./utils/cart-utils.js";
-import { getProducts } from "./services/supabase.js";
+import { isLoggedIn } from "./auth.js";
+import { getProducts, deleteProduct } from "./services/supabase.js";
 
 function getProductId() {
   const params = new URLSearchParams(window.location.search);
@@ -20,6 +21,7 @@ function renderIngredients(ingredientes) {
 }
 
 function renderProductDetail(product) {
+  const loggedIn = isLoggedIn();
   return `
     <div class="product-detail-visual">
       <div class="product-detail-image"><img src="${product.imagen}" alt="${product.nombre}" /></div>
@@ -40,6 +42,12 @@ function renderProductDetail(product) {
           Agregar al pedido
         </button>
       </div>
+      ${loggedIn ? `
+        <div class="product-admin-actions">
+          <a href="editar-plato.html?id=${product.id}" class="btn btn-secondary">Editar plato</a>
+          <button class="btn btn-danger delete-product-btn" data-id="${product.id}">Eliminar plato</button>
+        </div>
+      ` : ""}
     </div>
   `;
 }
@@ -89,6 +97,19 @@ async function loadProduct() {
       }
       alert(`${product.nombre} agregado al carrito!`);
     });
+
+    const deleteBtn = container.querySelector(".delete-product-btn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", async () => {
+        if (!confirm("¿Estás seguro de que deseas eliminar este plato?")) return;
+        try {
+          await deleteProduct(product.id);
+          window.location.href = "index.html";
+        } catch (err) {
+          alert("Error al eliminar el plato: " + err.message);
+        }
+      });
+    }
   } catch (error) {
     console.error("Error loading product:", error);
   }
