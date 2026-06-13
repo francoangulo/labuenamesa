@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--
+  seed.html — Script de seed para la base de datos de "La Buena Mesa".
+  Inserta 15 productos de prueba en Supabase con distintas combinaciones
+  de categorías y tags para verificar que los filtros del menú funcionan
+  correctamente. También permite limpiar todos los productos.
+  Uso: abrir en el navegador y hacer clic en "Seedear 15 productos".
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seed - La Buena Mesa</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        padding: 2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        font-family: var(--font-primary);
+      }
+      h1 {
+        color: var(--color-primary);
+      }
+      #output {
+        margin-top: 1rem;
+      }
+      .log {
+        padding: 0.3rem 0;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #eee;
+      }
+      .log.ok {
+        color: #27ae60;
+      }
+      .log.err {
+        color: #e74c3c;
+      }
+      .log.info {
+        color: #666;
+      }
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-primary);
+        font-weight: 600;
+      }
+      .btn-primary {
+        background: var(--color-primary);
+        color: #fff;
+      }
+      .btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .btn-danger {
+        background: #e74c3c;
+        color: #fff;
+        margin-left: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Seed de productos</h1>
+    <p style="color: #666; margin-bottom: 1.5rem">
+      Inserta productos de prueba en Supabase para probar los filtros.
+    </p>
+    <button class="btn btn-primary" id="seedBtn">Seedear 15 productos</button>
+    <button class="btn btn-danger" id="clearBtn">Limpiar todo</button>
+    <div id="output"></div>
+
+    <script>
+      const SUPABASE_URL = "https://ggizltqylwkijmrfviom.supabase.co";
+      const ANON_KEY = "sb_publishable_AbiBQ9QlUtFKeTmrtRtR5Q_ImVEMSHY";
+      const HEADERS = {
+        apikey: ANON_KEY,
+        Authorization: `Bearer ${ANON_KEY}`,
+        "Content-Type": "application/json",
+        Prefer: "return=representation",
+      };
+
+      const products = [
+        {
+          name: "Ensalada César",
+          description:
+            "Lechuga romana, croutons, parmesano y aderezo César casero.",
+          description_long:
+            "Nuestra clásica Ensalada César preparada con lechuga romana fresca, croutons crujientes, queso parmesano rallado y nuestro aderezo César casero. Una opción ligera y deliciosa.",
+          price: 8.5,
+          image_url:
+            "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=400&h=300&fit=crop",
+          ingredients: [
+            "Lechuga romana",
+            "Croutons",
+            "Queso parmesano",
+            "Aderezo César",
+            "Pollo grillé",
+          ],
+          category: "Entradas",
+          tags: ["vegetarian", "light", "popular"],
+        },
+        {
+          name: "Hummus con Crudités",
+          description: "Hummus cremoso con bastones de vegetales frescos.",
+          description_long:
+            "Hummus casero hecho con garbanzos, tahini, limón y aceite de oliva, acompañado de bastones de zanahoria, apio, pepino y pimiento. Ideal para compartir.",
+          price: 9.0,
+          image_url:
+            "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400&h=300&fit=crop",
+          ingredients: [
+            "Garbanzos",
+            "Tahini",
+            "Limón",
+            "Aceite de oliva",
+            "Zanahoria",
+            "Apio",
+            "Pepino",
+          ],
+          category: "Entradas",
+          tags: ["vegan", "gluten-free", "light"],
+        },
+        {
+          name: "Tacos de Hongos",
+          description: "Tacos con hongos salteados, cebolla morada y cilantro.",
+          description_long:
+            "Tacos de maíz rellenos de hongos salteados con ajo y especias, cebolla morada encurtida, cilantro fresco y un toque de salsa picante. Una explosión de sabor.",
+          price: 10.0,
+          image_url:
+            "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400&h=300&fit=crop",
+          ingredients: [
+            "Hongos",
+            "Cebolla morada",
+            "Cilantro",
+            "Salsa picante",
+            "Tortillas de maíz",
+          ],
+          category: "Entradas",
+          tags: ["vegan", "spicy", "featured"],
+        },
+        {
+          name: "Lasaña de Verduras",
+          description: "Capas de verduras asadas, bechamel y queso gratinado.",
+          description_long:
+            "Lasaña vegetariana con capas de berenjena, zapallito, espinaca y salsa bechamel, gratinada con queso parmesano y mozzarella. Acompañada de ensalada verde.",
+          price: 12.5,
+          image_url:
+            "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop",
+          ingredients: [
+            "Berenjena",
+            "Zapallito",
+            "Espinaca",
+            "Bechamel",
+            "Parmesano",
+            "Mozzarella",
+          ],
+          category: "Principales",
+          tags: ["vegetarian", "popular"],
+        },
+        {
+          name: "Curry de Garbanzos",
+          description:
+            "Garbanzos en salsa de curry con leche de coco y especias.",
+          description_long:
+            "Garbanzos cocinados a fuego lento en una salsa de curry aromática con leche de coco, jengibre, cúrcuma y comino. Servido con arroz basmati.",
+          price: 13.0,
+          image_url:
+            "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop",
+          ingredients: [
+            "Garbanzos",
+            "Leche de coco",
+            "Curry",
+            "Jengibre",
+            "Cúrcuma",
+            "Arroz basmati",
+          ],
+          category: "Principales",
+          tags: ["vegan", "gluten-free", "spicy"],
+        },
+        {
+          name: "Salmón a la Plancha",
+          description: "Salmón fresco con guarnición de verduras salteadas.",
+          description_long:
+            "Filete de salmón fresco cocinado a la plancha con hierbas provenzales, acompañado de espárragos trigueros, tomates cherry y un toque de limón.",
+          price: 16.0,
+          image_url:
+            "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+          ingredients: [
+            "Salmón",
+            "Espárragos",
+            "Tomates cherry",
+            "Limón",
+            "Hierbas provenzales",
+          ],
+          category: "Principales",
+          tags: ["gluten-free", "light", "popular"],
+        },
+        {
+          name: "Milanesa Napolitana",
+          description: "Milanesa de carne con salsa, jamón y queso gratinado.",
+          description_long:
+            "Milanesa de carne vacuna empanizada, cubierta con salsa de tomate, jamón cocido y queso mozzarella gratinado. Acompañada de papas fritas.",
+          price: 14.0,
+          image_url:
+            "https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop",
+          ingredients: [
+            "Carne vacuna",
+            "Pan rallado",
+            "Salsa de tomate",
+            "Jamón",
+            "Mozzarella",
+            "Papas",
+          ],
+          category: "Principales",
+          tags: ["featured", "new"],
+        },
+        {
+          name: "Ensalada Veggie Bowl",
+          description: "Bowl de quinoa, vegetales asados y aderezo de tahini.",
+          description_long:
+            "Bowl nutritivo con quinoa, batata asada, garbanzos, palta, rúcula y semillas de sésamo, bañado en aderezo de tahini y limón.",
+          price: 11.0,
+          image_url:
+            "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+          ingredients: [
+            "Quinoa",
+            "Batata",
+            "Garbanzos",
+            "Palta",
+            "Rúcula",
+            "Tahini",
+          ],
+          category: "Principales",
+          tags: ["vegan", "gluten-free", "light", "sugar-free"],
+        },
+        {
+          name: "Brownie Sin Gluten",
+          description: "Brownie de chocolate sin gluten con nueces.",
+          description_long:
+            "Brownie denso y húmedo elaborado con harina de almendra y cacao amargo, con trozos de nueces y chispas de chocolate. Apto para celíacos.",
+          price: 6.5,
+          image_url:
+            "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop",
+          ingredients: [
+            "Harina de almendra",
+            "Cacao",
+            "Nueces",
+            "Chocolate",
+            "Huevo",
+            "Azúcar",
+          ],
+          category: "Postres",
+          tags: ["gluten-free", "sugar-free"],
+        },
+        {
+          name: "Cheesecake de Frutos Rojos",
+          description: "Cheesecake cremoso con coulis de frutos rojos.",
+          description_long:
+            "Cheesecake horneado con base de galletitas, crema de queso y topping de coulis casero de frutos rojos. Un clásico irresistible.",
+          price: 8.0,
+          image_url:
+            "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop",
+          ingredients: [
+            "Queso crema",
+            "Galletitas",
+            "Frutos rojos",
+            "Azúcar",
+            "Huevo",
+            "Crema de leche",
+          ],
+          category: "Postres",
+          tags: ["vegetarian", "popular"],
+        },
+        {
+          name: "Helado Vegano",
+          description: "Helado de coco y mango, 100% vegetal.",
+          description_long:
+            "Helado cremoso elaborado con leche de coco y puré de mango natural, sin lácteos ni azúcares refinados. Fresco y tropical.",
+          price: 5.5,
+          image_url:
+            "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop",
+          ingredients: ["Leche de coco", "Mango", "Endulzante natural"],
+          category: "Postres",
+          tags: ["vegan", "gluten-free", "sugar-free", "new"],
+        },
+        {
+          name: "Agua Saborizada",
+          description: "Agua infusionada con frutas y hierbas frescas.",
+          description_long:
+            "Agua mineral con rodajas de limón, naranja, pepino y hojas de menta. Refrescante, sin azúcar y baja en calorías.",
+          price: 3.5,
+          image_url:
+            "https://images.unsplash.com/photo-1553531889-56ccb1fb51d1?w=400&h=300&fit=crop",
+          ingredients: ["Agua mineral", "Limón", "Naranja", "Pepino", "Menta"],
+          category: "Bebidas",
+          tags: ["vegan", "gluten-free", "sugar-free", "light"],
+        },
+        {
+          name: "Cerveza Artesanal",
+          description: "Cerveza rubia artesanal de la casa.",
+          description_long:
+            "Cerveza rubia de fermentación alta, con notas cítricas y un amargor equilibrado. Elaborada artesanalmente con lúpulo y cebada seleccionados.",
+          price: 5.0,
+          image_url:
+            "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=400&h=300&fit=crop",
+          ingredients: ["Agua", "Cebada", "Lúpulo", "Levadura"],
+          category: "Bebidas",
+          tags: ["with-alcohol", "gluten-free"],
+        },
+        {
+          name: "Vino de la Casa",
+          description: "Vino tinto malbec, cosecha 2022.",
+          description_long:
+            "Malbec argentino de cuerpo medio, con aromas a frutos rojos y un final suave. Ideal para acompañar carnes y pastas.",
+          price: 6.0,
+          image_url:
+            "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=300&fit=crop",
+          ingredients: ["Uva malbec"],
+          category: "Bebidas",
+          tags: ["with-alcohol", "featured"],
+        },
+        {
+          name: "Smoothie Tropical",
+          description: "Smoothie de frutas tropicales con leche de almendra.",
+          description_long:
+            "Smoothie cremoso de ananá, mango y banana con leche de almendra. Sin azúcar añadida, naturalmente dulce y refrescante.",
+          price: 4.5,
+          image_url:
+            "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop",
+          ingredients: ["Ananá", "Mango", "Banana", "Leche de almendra"],
+          category: "Bebidas",
+          tags: ["vegan", "gluten-free", "sugar-free", "new"],
+        },
+      ];
+
+      const output = document.getElementById("output");
+      const seedBtn = document.getElementById("seedBtn");
+      const clearBtn = document.getElementById("clearBtn");
+
+      function log(msg, type = "info") {
+        const div = document.createElement("div");
+        div.className = `log ${type}`;
+        div.textContent = msg;
+        output.appendChild(div);
+      }
+
+      async function insertProduct(product) {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/products`, {
+          method: "POST",
+          headers: HEADERS,
+          body: JSON.stringify(product),
+        });
+        if (!res.ok) {
+          const err = await res.text();
+          throw new Error(`${res.status}: ${err}`);
+        }
+        return res.json();
+      }
+
+      async function deleteAllProducts() {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/products`, {
+          method: "DELETE",
+          headers: { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` },
+        });
+        if (!res.ok) {
+          const err = await res.text();
+          throw new Error(`${res.status}: ${err}`);
+        }
+        return res.json();
+      }
+
+      seedBtn.addEventListener("click", async () => {
+        seedBtn.disabled = true;
+        output.innerHTML = "";
+        log("Iniciando seed de 15 productos...", "info");
+
+        for (let i = 0; i < products.length; i++) {
+          const p = products[i];
+          try {
+            await insertProduct(p);
+            log(`✓ ${p.name} (${p.category}) [${p.tags.join(", ")}]`, "ok");
+          } catch (e) {
+            log(`✗ ${p.name}: ${e.message}`, "err");
+          }
+        }
+
+        log(
+          "¡Seed completado! Recargá la página del menú para ver los cambios.",
+          "info"
+        );
+        seedBtn.disabled = false;
+      });
+
+      clearBtn.addEventListener("click", async () => {
+        if (!confirm("¿Eliminar todos los productos de la base de datos?"))
+          return;
+        clearBtn.disabled = true;
+        output.innerHTML = "";
+        log("Eliminando productos...", "info");
+
+        try {
+          const count = await deleteAllProducts();
+          log(`✓ Productos eliminados correctamente.`, "ok");
+        } catch (e) {
+          log(`✗ Error: ${e.message}`, "err");
+        }
+
+        clearBtn.disabled = false;
+      });
+    </script>
+  </body>
+</html>
