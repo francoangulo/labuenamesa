@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Plato - La Buena Mesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="https://fav.farm/🍔" />
+    <script type="module" src="editar-plato.js"></script>
+  </head>
+  <body>
+    <script type="module" src="components/nav.js"></script>
+
+    <main class="form-page">
+      <div class="form-wrapper">
+        <a href="index.html" class="back-link"> ← Volver al menú </a>
+        <h1>Editar Plato</h1>
+        <p class="form-subtitle">
+          Modifica los detalles del plato y guarda los cambios
+        </p>
+
+        <div class="form-container">
+          <form id="platoForm" class="plato-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre del plato</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ej: Paella Valenciana"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria" required>
+                  <option value="">Selecciona una categoría</option>
+                  <option value="entradas">Entradas</option>
+                  <option value="principales">Principales</option>
+                  <option value="postres">Postres</option>
+                  <option value="bebidas">Bebidas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-column">
+                <div class="form-group">
+                  <label for="descripcion">Descripción breve/Subtítulo</label>
+                  <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    rows="2"
+                    placeholder="Describe los ingredientes y características del plato"
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="ingredientes"
+                    >Ingredientes (separados por coma)</label
+                  >
+                  <input
+                    type="text"
+                    id="ingredientes"
+                    name="ingredientes"
+                    placeholder="Ej: Masa artesanal, Mozzarella, Albahaca"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="descripcion_larga">Descripción larga</label>
+                <textarea
+                  id="descripcion_larga"
+                  name="descripcion_larga"
+                  rows="6"
+                  placeholder="Descripción más detallada del plato"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="imagen">URL de imagen</label>
+                <input
+                  type="text"
+                  id="imagen"
+                  name="imagen"
+                  placeholder="Ej: https://example.com/image.jpg"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="precio">Precio ($)</label>
+                <input
+                  type="number"
+                  id="precio"
+                  name="precio"
+                  step="0.01"
+                  min="0"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <a href="index.html" class="btn btn-secondary">Cancelar</a>
+              <button type="submit" class="btn btn-primary">
+                Actualizar Plato
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="components/fab-scroll-top.js"></script>
+  </body>
+</html>

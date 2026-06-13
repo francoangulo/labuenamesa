@@ -73,3 +73,40 @@ export async function insertProduct(product) {
   const data = await response.json();
   return toSpanish(data);
 }
+
+// Actualiza un producto en Supabase
+export async function updateProduct(id, product) {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/products?id=eq.${id}`, {
+    method: "PATCH",
+    headers: {
+      apikey: ANON_KEY,
+      Authorization: `Bearer ${ANON_KEY}`,
+      "Content-Type": "application/json",
+      Prefer: "return=representation",
+    },
+    body: JSON.stringify(product),
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Error ${response.status}: ${error}`);
+  }
+
+  return response.json();
+}
+
+// Elimina un producto de Supabase
+export async function deleteProduct(id) {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/products?id=eq.${id}`, {
+    method: "DELETE",
+    headers: {
+      apikey: ANON_KEY,
+      Authorization: `Bearer ${ANON_KEY}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Error ${response.status}: ${error}`);
+  }
+}
