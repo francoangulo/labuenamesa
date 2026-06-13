@@ -27,42 +27,17 @@
 
         <div class="form-container">
           <form id="platoForm" class="plato-form">
-            <div class="form-group">
-              <label for="nombre">Nombre del plato</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Ej: Paella Valenciana"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="descripcion">Descripción</label>
-              <textarea
-                id="descripcion"
-                name="descripcion"
-                rows="3"
-                placeholder="Describe los ingredientes y características del plato"
-                required
-              ></textarea>
-            </div>
-
             <div class="form-row">
               <div class="form-group">
-                <label for="precio">Precio ($)</label>
+                <label for="nombre">Nombre del plato</label>
                 <input
-                  type="number"
-                  id="precio"
-                  name="precio"
-                  step="0.01"
-                  min="0"
-                  placeholder="0.00"
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ej: Paella Valenciana"
                   required
                 />
               </div>
-
               <div class="form-group">
                 <label for="categoria">Categoría</label>
                 <select id="categoria" name="categoria" required>
@@ -75,39 +50,66 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="imagen">Emoji representativo</label>
-              <input
-                type="text"
-                id="imagen"
-                name="imagen"
-                placeholder="Ej: 🍝 (ingresa un emoji)"
-                required
-              />
+            <div class="form-row">
+              <div class="form-column">
+                <div class="form-group">
+                  <label for="descripcion">Descripción breve/Subtítulo</label>
+                  <textarea
+                    id="descripcion"
+                    name="descripcion"
+                    rows="2"
+                    placeholder="Describe los ingredientes y características del plato"
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="ingredientes"
+                    >Ingredientes (separados por coma)</label
+                  >
+                  <input
+                    type="text"
+                    id="ingredientes"
+                    name="ingredientes"
+                    placeholder="Ej: Masa artesanal, Mozzarella, Albahaca"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="descripcion_larga">Descripción larga</label>
+                <textarea
+                  id="descripcion_larga"
+                  name="descripcion_larga"
+                  rows="6"
+                  placeholder="Descripción más detallada del plato"
+                  required
+                ></textarea>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="descripcion_larga">Descripción larga</label>
-              <textarea
-                id="descripcion_larga"
-                name="descripcion_larga"
-                rows="4"
-                placeholder="Descripción más detallada del plato"
-                required
-              ></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="ingredientes"
-                >Ingredientes (separados por coma)</label
-              >
-              <input
-                type="text"
-                id="ingredientes"
-                name="ingredientes"
-                placeholder="Ej: Masa artesanal, Mozzarella, Albahaca"
-                required
-              />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="imagen">URL de imagen</label>
+                <input
+                  type="text"
+                  id="imagen"
+                  name="imagen"
+                  placeholder="Ej: https://example.com/image.jpg"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="precio">Precio ($)</label>
+                <input
+                  type="number"
+                  id="precio"
+                  name="precio"
+                  step="0.01"
+                  min="0"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
             </div>
 
             <div class="form-actions">
