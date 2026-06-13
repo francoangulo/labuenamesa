@@ -39,7 +39,6 @@ export function renderNav() {
 
   const currentPath = window.location.pathname;
 
-  console.log("franco currentPath ", JSON.stringify(currentPath, null, 4));
   const currentPage = currentPath.endsWith("/")
     ? "index.html"
     : currentPath.split("/").pop();
@@ -48,9 +47,7 @@ export function renderNav() {
   navLinks.forEach((link) => {
     const linkHref = link.getAttribute("href");
     if (linkHref === "#") return;
-    console.log("franco linkHref", JSON.stringify(linkHref, null, 4));
     const linkPage = linkHref.split("/").pop();
-    console.log("franco linkPage", JSON.stringify(linkPage, null, 4));
     linkPage === currentPage
       ? link.classList.add("active")
       : link.classList.remove("active");
